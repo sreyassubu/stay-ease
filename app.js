@@ -91,10 +91,10 @@ app.use((req,res,next)=>{
 });
 
 
-// //Root route
-// app.get("/",(req,res)=>{
-//     res.send("root page");
-// });
+//Root route
+app.get("/",(req,res)=>{
+    res.redirect("/listings");
+});
 
 //Routers
 app.use("/listings", listingRouter);

@@ -1,0 +1,47 @@
+<% layout("layouts/boilerplate.ejs"); %>
+
+
+<% if(listings.length>0){ %>
+    <!-- Tax toggle box (checkbox on the left, label on the right) -->
+<div class="tax-box p-3 d-flex align-items-center border rounded shadow-sm bg-light mt-3" style="width: 15rem;">
+    <input class="form-check-input me-2 tax-toggler" type="checkbox" id="flexSwitchCheckDefault">
+    <label class="form-check-label fw-bold" for="flexSwitchCheckDefault">
+      Total after taxes
+    </label>
+  </div>
+
+  <div class="text-center my-4">
+    <h4 class="fw-medium text-dark">All listings in <span class="text-primary fst-italic"><%=listings[0].country%></span></h3>
+    </div>
+
+<!-- Listings grid -->
+<div class="row row-cols-lg-3 row-cols-md-2 row-cols-1 mt-3">
+    <% for(listing of listings) { %>
+      <a href="/listings/<%= listing.id %>" class="listing-link">
+        <div class="card col listing-card">
+          <img
+            src="<%= listing.image.url %>"
+            class="card-img-top"
+            alt="listing-image"
+            style="height: 20rem;"
+          >
+          <div class="card-body">
+            <p class="card-text">
+              <b><%= listing.title %></b> <br>
+              &#8377; <%= listing.price.toLocaleString("en-in") %>
+              <i class="tax-info">&nbsp;&nbsp; +18% GST = <% let total = listing.price*0.18 + listing.price %>
+                  &#8377;  <%=total.toLocaleString("en-in")%></i>
+            </p>
+          </div>
+        </div>
+      </a>
+    <% } %>
+  </div>
+<% } 
+
+else { %>
+    <div class="text-center my-4">
+    <h4 class="fw-medium text-dark">Sorry, no listings in this country</h4>
+    </div>
+<% } %>
+

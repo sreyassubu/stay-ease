@@ -1,0 +1,74 @@
+<%layout("layouts/boilerplate.ejs"); %>
+
+    <form action="http://localhost:8080/listings/<%=editListing._id%>?_method=PUT" method="post" class="needs-validation" novalidate enctype="multipart/form-data">
+        <div class="row mt-3">
+        <div class="col-8 offset-2">
+        <h2>Edit your listing</h2>
+        <div class="mb-3 mt-3">
+            <label for="title" class="form-label">Enter title: </label>
+            <input type="text" name="listing[title]" id="title" value="<%=editListing.title%>" class="form-control" required> 
+            <div class="valid-feedback">Title looks good!</div>
+            <div class="invalid-feedback">Add title</div>
+        </div>
+
+        <div class="mb-3">
+            <label for="description" class="form-label">Enter description: </label>
+            <textarea name="listing[description]" id="description" class="form-control" required><%=editListing.description%></textarea>
+            <div class="invalid-feedback">Add a short description</div>
+        </div>
+
+        Original image
+        <div class="mb-3">
+            <img src="<%=originalImageUrl%>" alt="listing-image">
+        </div>
+
+        <div class="mb-3">
+            <label for="image" class="form-label">Upload image file</label>
+            <input type="file" name="listing[image]" id="image" value="<%=editListing.image%>" class="form-control">
+            <div class="invalid-feedback">Add image link</div> 
+        </div>
+        
+        <div class="row">
+        <div class="mb-3 col-md-4">
+            <label for="price" class="form-label">Enter price: </label>
+            <input type="number" name="listing[price]" id="price" value="<%=editListing.price%>" class="form-control" required>
+            <div class="invalid-feedback">Enter valid price</div> 
+        </div>
+
+        <div class="mb-3 col-md-8">
+            <label for="location" class="form-label">Enter location: </label>
+            <input type="text" name="listing[location]" id="location" value="<%=editListing.location%>" class="form-control" required>
+            <div class="invalid-feedback">Enter valid location</div> 
+        </div>
+        <div class="mb-3 col-md-4">
+            <label for="country" class="form-label">Enter country: </label>
+            <input type="text" name="listing[country]" id="country" value="<%=editListing.country%>" class="form-control" required>
+            <div class="invalid-feedback">Enter valid country</div> 
+        </div>
+        <div class="mb-3 col-md-8">
+            <label for="category" class="form-label">Enter category: </label>
+            <select name="listing[category]" class="form-select" id="category" required>
+                <option value="<%= listing.category%>" selected><%= listing.category%></option>
+                <option value="Trending">Trending</option>
+                <option value="Rooms">Rooms</option>
+                <option value="Iconic cities">Iconic cities</option>
+                <option value="Mountains">Mountains</option>
+                <option value="Castle">Castle</option>
+                <option value="Amazing pools">Amazing pools</option>
+                <option value="Arctic">Arctic</option>
+                <option value="Camping">Camping</option>
+                <option value="Farms">Farms</option>
+            </select>
+                <div class="invalid-feedback">Select a category</div>
+        </div>
+        </div>
+
+        
+
+        <button class="btn btn-dark edit-btn mt-3 mb-3">Edit</button>
+    </div>
+    </div>
+    </form>
+    <br>
+    
+    

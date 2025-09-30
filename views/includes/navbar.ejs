@@ -1,0 +1,66 @@
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg bg-body-light border-bottom sticky-top top-navbar">
+  <div class="container-fluid">
+
+    <!-- Brand / Logo -->
+    <a class="navbar-brand" href="/listings">
+      <i class="fa-regular fa-compass"></i>
+    </a>
+
+    <!-- Hamburger (for mobile) -->
+    <button 
+      class="navbar-toggler" 
+      type="button" 
+      data-bs-toggle="collapse" 
+      data-bs-target="#navbarNavAltMarkup"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Collapsible Navbar Content -->
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+
+      <!-- Left side links -->
+      <div class="navbar-nav">
+        <a class="nav-link" href="/listings">Explore</a>
+      </div>
+
+      <!-- Search form (center/right side) -->
+      <div class="navbar-nav ms-auto">
+        <form class="d-flex" role="search" method="get" action="/listings/country">
+          <input 
+            class="form-control me-2 search-input" 
+            type="search" 
+            placeholder="Search by country" 
+            name="country" 
+            aria-label="Search"
+          />
+          <button class="btn search-btn" type="submit">
+            <i class="fa-solid fa-magnifying-glass"></i> Search
+          </button>
+        </form>
+      </div>
+
+      <!-- Right side links (new listing + auth) -->
+      <div class="navbar-nav ms-auto">
+
+        <!-- New listing link -->
+        <a class="nav-link me-3" href="/listings/new">Airbnb your home</a>
+
+        <!-- If NOT logged in -->
+        <% if(!currUser){ %>
+          <a class="btn btn-dark me-3" href="/users/signup">
+            <i class="fa-solid fa-user-plus me-1"></i> Signup
+          </a>            
+          <a class="nav-link" href="/users/login"><b>Log in</b></a>
+        <% } %>
+
+        <!-- If logged in -->
+        <% if(currUser){ %>
+          <a class="nav-link" href="/users/logout">Log out</a>
+        <% } %>
+      </div>
+
+    </div>
+  </div>
+</nav>

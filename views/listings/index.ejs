@@ -1,0 +1,84 @@
+<% layout("layouts/boilerplate.ejs"); %>
+
+<%
+const categories = [
+  { name: "Trending", icon: "fa-fire" },
+  { name: "Rooms", icon: "fa-bed" },
+  { name: "Iconic cities", icon: "fa-city" },
+  { name: "Mountains", icon: "fa-mountain" },
+  { name: "Castle", icon: "fa-chess-rook" },
+  { name: "Amazing pools", icon: "fa-person-swimming" },
+  { name: "Arctic", icon: "fa-snowflake" },
+  { name: "Camping", icon: "fa-campground" },
+  { name: "Farms", icon: "fa-cow" }
+];
+%>
+
+<!-- Bootstrap Navbar -->
+<nav class="navbar navbar-expand-lg bg-light mb-4">
+  <div class="container-fluid">
+    <!-- Toggle button (hamburger) -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#categoryNavbar"
+      aria-controls="categoryNavbar"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="categoryNavbar">
+      <!-- Category filters -->
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex flex-wrap gap-3">
+        <% categories.forEach(cat => { %>
+          <li class="nav-item text-center">
+            <a
+              class="nav-link d-flex flex-column align-items-center filter"
+              href="/listings/category/<%= cat.name.toLowerCase() %>"
+            >
+              <i class="fa-solid <%= cat.icon %> fs-4"></i>
+              <small><%= cat.name %></small>
+            </a>
+          </li>
+        <% }) %>
+      </ul>
+
+      <!-- Tax toggle box (checkbox on the left, label on the right) -->
+      <div class="tax-box p-3 d-flex align-items-center border rounded shadow-sm bg-light">
+        <input class="form-check-input me-2 tax-toggler" type="checkbox" id="flexSwitchCheckDefault">
+        <label class="form-check-label fw-bold" for="flexSwitchCheckDefault">
+          Total after taxes
+        </label>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Listings grid -->
+<div class="row row-cols-lg-3 row-cols-md-2 row-cols-1 mt-3">
+  <% for(listing of allListings) { %>
+    <a href="/listings/<%= listing.id %>" class="listing-link">
+      <div class="card col listing-card">
+        <img
+          src="<%= listing.image.url %>"
+          class="card-img-top"
+          alt="listing-image"
+          style="height: 20rem;"
+        >
+        <div class="card-body">
+          <p class="card-text">
+            <b><%= listing.title %></b> <br>
+            &#8377; <%= listing.price.toLocaleString("en-in") %>
+            <i class="tax-info">&nbsp;&nbsp; +18% GST = <% let total = listing.price*0.18 + listing.price %>
+                &#8377;  <%=total.toLocaleString("en-in")%>               </i>
+          </p>
+        </div>
+      </div>
+    </a>
+  <% } %>
+</div>
+

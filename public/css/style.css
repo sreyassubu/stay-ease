@@ -1,0 +1,139 @@
+body{
+    font-family: "Plus Jakarta Sans", sans-serif !important;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container{
+    flex: 1;
+}
+
+/* Navbar */
+.top-navbar{
+    padding-top: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
+    background-color: #fff;
+}
+
+.fa-compass{
+    font-size: 2rem;
+    color: #fe424d;
+}
+
+.nav-link{
+    color: #222222 !important;
+}
+
+.search-btn{
+    background-color: #fe424d !important;
+    color: #fff !important;
+    border-radius: 1rem !important;
+    padding: 0 1rem 0 1rem !important;
+  }
+
+  .search-btn:hover{
+    background-color: #fe424d !important;
+    color: #fff !important;
+  }
+
+  .search-btn i{
+    display: inline !important;
+    margin-right: 0.5rem !important;
+  }
+
+  .search-input{
+    border-radius: 1.5rem !important;
+    padding: 0.5rem 3rem 0.5rem 3rem !important;
+    font-size: 0.9rem !important;
+    width: 20rem !important;
+  }
+
+
+/* Footer */
+.f-info-social{
+    font-size: 1.2rem;
+}
+
+.f-info-social i{
+    margin-right: 1rem;
+}
+
+.f-info-links a{
+    text-decoration: none;
+    color: #222222;
+}
+.f-info-links a:hover{
+    text-decoration: underline;
+}
+
+.f-info{
+    background-color: #ebebeb;
+    height: 8rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+/* Card */
+.listing-card{
+    border: none !important;
+    margin-bottom: 2rem;
+}
+
+.card-img-top{
+    border-radius: 1rem !important;
+    width:100% !important;
+    object-fit: cover !important;
+}
+
+.card-img-top:hover{
+    opacity: 0.85;
+}
+
+.card-body{
+    padding: 0 !important;
+
+}
+
+.card-text{
+    font-weight: 400 !important;
+}
+
+.listing-link{
+    text-decoration: none;
+}
+
+/* New page */
+.add-btn{
+    background-color: #fe424d !important;
+    border: none !important;
+}
+
+/* Edit page */
+.edit-btn{
+    background-color: #fe424d !important;
+    border: none !important;
+    margin-right: 1rem;
+}
+
+/* Show page */
+.show-img{
+    height: 40vh;
+}
+
+.btns{
+    display: flex;
+}
+
+/* .show-card{
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+} */
+
+/* Map */
+#map { 
+    height: 400px;
+    width: 80vh;
+}
